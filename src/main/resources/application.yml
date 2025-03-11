@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:hsqldb:file:addon-db # Use a file-based backing store for HSQL
+
+addon:
+  key: demo-app
+  base-url: http://localhost:${server.port}
+
+logging:
+  level:
+    com.atlassian.connect.spring: DEBUG
+
+atlassian:
+  connect:
+    uriEncoding: none

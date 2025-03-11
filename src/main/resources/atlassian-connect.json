@@ -1,0 +1,25 @@
+{
+  "key": "${addon.key}",
+  "baseUrl": "${addon.base-url}",
+  "name": "Demo App",
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "scopes": ["READ"],
+
+  "modules": {
+    "generalPages": [
+      {
+        "key": "board",
+        "url": "/board",
+        "name": {
+          "value": "Board"
+        }
+      }
+    ]
+  }
+}
