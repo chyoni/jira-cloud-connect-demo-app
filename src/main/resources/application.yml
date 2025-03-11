@@ -12,7 +12,7 @@ spring:
 
 addon:
   key: demo-app
-  base-url: https://pms.tbell.kro.kr:${server.port}/mm
+  base-url: https://pms.tbell.kro.kr/mm
 
 logging:
   level:
