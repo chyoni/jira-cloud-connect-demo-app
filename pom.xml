@@ -13,9 +13,9 @@
     <version>0.0.1</version>
 
     <properties>
-        <java.version>8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17.0.12</maven.compiler.source>
+        <maven.compiler.target>17.0.12</maven.compiler.target>
         <atlassian-connect-spring-boot.version>5.1.7</atlassian-connect-spring-boot.version>
     </properties>
 
