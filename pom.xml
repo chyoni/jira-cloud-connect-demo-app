@@ -13,9 +13,9 @@
     <version>0.0.1</version>
 
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>17.0.12</maven.compiler.source>
-        <maven.compiler.target>17.0.12</maven.compiler.target>
+        <java.version>8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <atlassian-connect-spring-boot.version>5.1.7</atlassian-connect-spring-boot.version>
     </properties>
 
@@ -55,15 +55,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
             </plugin>
         </plugins>
     </build>
