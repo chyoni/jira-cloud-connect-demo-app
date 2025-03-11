@@ -40,5 +40,5 @@ out/
 addon-db.log
 addon-db.properties
 addon-db.script
-addon-db.lock
+addon-db.lck
 
