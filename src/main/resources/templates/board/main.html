@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Board</title>
+    <script src="https://connect-cdn.atl-paas.net/all.js"></script>
+</head>
+<body>
+    <div style="width: 100%; display: flex; align-items: center; justify-content: center;">
+        <h2>Board</h2>
+        <button>Create +</button>
+    </div>
+    <table id="board-table" class="aui aui-table-sortable">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="article : ${articles.getArticles()}">
+                <td th:text="${article.getTitle()}"></td>
+                <td th:text="${article.getWriterId()}"></td>
+                <td th:text="${article.getCreatedAt()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
