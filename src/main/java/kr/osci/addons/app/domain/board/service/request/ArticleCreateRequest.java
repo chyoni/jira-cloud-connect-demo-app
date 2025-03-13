@@ -1,14 +1,12 @@
 package kr.osci.addons.app.domain.board.service.request;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 
-@Getter
-@ToString
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ArticleCreateRequest {
-    private String title;
-    private String content;
+public record ArticleCreateRequest(@NotBlank @Length(min = 1, max = 50) String title,
+                                   @NotBlank String content) {
+
+    public static ArticleCreateRequest empty() {
+        return new ArticleCreateRequest("", "");
+    }
 }

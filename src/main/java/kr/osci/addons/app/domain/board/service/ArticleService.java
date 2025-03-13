@@ -24,13 +24,13 @@ public class ArticleService {
 
     @Transactional
     public ArticleCreateResponse create(ArticleCreateRequest request, AtlassianHostUser requestUser) {
-        String writerId = requestUser.getUserAccountId().orElseThrow();
-
         Article newArticle = articleRepository.save(
                 Article.of(
-                        request.getTitle(),
-                        request.getContent(),
-                        writerId
+                        request.title(),
+                        request.content(),
+                        requestUser == null ?
+                                "LocalUser" :
+                                requestUser.getUserAccountId().orElseThrow()
                 )
         );
 

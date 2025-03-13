@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Board</title>
-    <script src="https://connect-cdn.atl-paas.net/all.js"></script>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/base :: common_header(~{::title})">
+    <title th:text="#{board.main.title}"></title>
 </head>
 <body>
     <div style="width: 100%; display: flex; align-items: center; justify-content: center;">
-        <h2>Board</h2>
-        <button>Create +</button>
+        <h2 th:text="#{board.main.title}"></h2>
+    </div>
+    <div style="width: 100%; display: flex; align-items: center; justify-content: flex-end">
+        <a class="aui-button aui-button-primary" th:href="@{board/new}" th:text="#{create.button}"></a>
     </div>
     <table id="board-table" class="aui aui-table-sortable">
         <thead>
             <tr>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
+                <th th:text="#{board.title}"></th>
+                <th th:text="#{board.writer}"></th>
+                <th th:text="#{board.created}"></th>
             </tr>
         </thead>
         <tbody>

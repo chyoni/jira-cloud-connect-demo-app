@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(title)">
+    <title th:replace="${title}"></title>
+
+    <link rel="stylesheet" href="https://unpkg.com/@atlaskit/css-reset@2.0.0/dist/bundle.css" media="all">
+    <link th:href="@{/css/board.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.css"/>
+
+    <script src="https://connect-cdn.atl-paas.net/all.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+    <script src="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.js"></script>
+</head>
+</html>

@@ -9,34 +9,39 @@ addon:
 
 logging:
   level:
-    com.atlassian.connect.spring: DEBUG
+    com.atlassian.connect.spring: debug
+    kr.osci.addons.app: debug
 
 atlassian:
   connect:
     uriEncoding: none
 
 spring:
-  profiles:
-    active: local
+  config:
+    activate:
+      on-profile: local
   jpa:
     hibernate:
       ddl-auto: none
+    open-in-view: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/board
+    url: jdbc:mysql://localhost:3306/board
     username: "root"
     password: "root"
 
 ---
 
 spring:
-  profiles:
-    active: prod
+  config:
+    activate:
+      on-profile: prod
   jpa:
     hibernate:
       ddl-auto: none
+    open-in-view: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/board
+    url: jdbc:mysql://localhost:3306/board
     username: 'root'
     password: 'cwchoiit'
