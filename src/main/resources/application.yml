@@ -3,13 +3,6 @@ server:
   servlet:
     context-path: /mm
 
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: none
-  datasource:
-    url: jdbc:hsqldb:file:addon-db # Use a file-based backing store for HSQL
-
 addon:
   key: demo-app
   base-url: https://pms.tbell.kro.kr/mm
@@ -21,3 +14,29 @@ logging:
 atlassian:
   connect:
     uriEncoding: none
+
+spring:
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/board
+    username: "root"
+    password: "root"
+
+---
+
+spring:
+  profiles:
+    active: prod
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/board
+    username: 'root'
+    password: 'cwchoiit'
