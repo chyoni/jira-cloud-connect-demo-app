@@ -23,7 +23,6 @@
       {
         "key": "board-new",
         "url": "/board/new",
-        "location": "none",
         "name": {
           "value": "Create New Article"
         }
