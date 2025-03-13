@@ -23,6 +23,7 @@
       {
         "key": "new",
         "location": "board",
+        "url": "/board/new",
         "name": {
           "value": "Create New Article"
         }
