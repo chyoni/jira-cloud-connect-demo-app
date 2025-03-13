@@ -11,7 +11,7 @@
     <form th:action="@{/board/new}"
           th:object="${article}"
           method="post"
-          class="aui">
+          class="aui" style="height: 100vh;">
         <div class="field-group">
             <label th:for="title" th:text="#{board.title}"></label>
             <input class="text long-field" type="text" th:field="*{title}" th:placeholder="#{board.title}">

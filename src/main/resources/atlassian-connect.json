@@ -21,8 +21,8 @@
         }
       },
       {
-        "key": "board-new",
-        "url": "/board/new",
+        "key": "new",
+        "location": "board",
         "name": {
           "value": "Create New Article"
         }
