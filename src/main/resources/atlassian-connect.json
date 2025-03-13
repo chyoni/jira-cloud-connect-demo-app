@@ -9,7 +9,7 @@
     "installed": "/installed",
     "uninstalled": "/uninstalled"
   },
-  "scopes": ["READ"],
+  "scopes": ["READ", "WRITE"],
 
   "modules": {
     "generalPages": [
@@ -18,6 +18,13 @@
         "url": "/board",
         "name": {
           "value": "Board"
+        }
+      },
+      {
+        "key": "new",
+        "url": "/board/new",
+        "name": {
+          "value": "New"
         }
       }
     ]
