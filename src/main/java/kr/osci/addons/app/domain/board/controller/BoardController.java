@@ -15,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@IgnoreJwt
 @Controller
 @RequestMapping("/board")
 @RequiredArgsConstructor
@@ -47,6 +46,6 @@ public class BoardController {
         }
 
         articleService.create(article, authenticatedUser);
-        return "redirect:/board";
+        return "board/main";
     }
 }
