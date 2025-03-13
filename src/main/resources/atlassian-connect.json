@@ -21,10 +21,11 @@
         }
       },
       {
-        "key": "new",
+        "key": "board-new",
         "url": "/board/new",
+        "location": "none",
         "name": {
-          "value": "New"
+          "value": "Create New Article"
         }
       }
     ]

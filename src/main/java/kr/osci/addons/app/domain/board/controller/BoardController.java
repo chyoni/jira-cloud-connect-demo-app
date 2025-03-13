@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
-@RequestMapping("/board")
 @RequiredArgsConstructor
+@RequestMapping("/board")
 public class BoardController {
 
     private final ArticleService articleService;
