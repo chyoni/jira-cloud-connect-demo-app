@@ -9,9 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -36,20 +36,5 @@ public class BoardController {
         model.addAttribute("article", ArticleCreateRequest.empty());
         model.addAttribute("hostUser", hostUser);
         return "board/createForm";
-    }
-
-    @PostMapping("/new")
-    public String create(@AuthenticationPrincipal AtlassianHostUser authenticatedUser,
-                         @Validated @ModelAttribute("article") ArticleCreateRequest article,
-                         BindingResult bindingResult) {
-        log.info("[create:45] create: {}", article);
-
-        if (bindingResult.hasErrors()) {
-            log.debug("[create:45] binding errors : {}", bindingResult);
-            return "board/createForm";
-        }
-
-        articleService.create(article, authenticatedUser);
-        return "board/main";
     }
 }
