@@ -8,7 +8,6 @@ $('#article-save-button').on('click', function (e) {
         jwt = token;
     });
 
-    console.log(AP.content.getToken());
     console.log(jwt);
 
     /*AP.context.getToken(function (token) {
@@ -32,7 +31,7 @@ $('#article-save-button').on('click', function (e) {
         },
     })*/
 
-    $.post(`/mm/api/v1/board`, {title, content})
+    $.post(`/mm/api/v1/board?jwt=${jwt}`, {title, content})
         .done(function (e) {
             console.log(e);
             location.reload();
