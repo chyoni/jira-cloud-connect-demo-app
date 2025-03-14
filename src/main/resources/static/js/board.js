@@ -4,14 +4,19 @@ $('#article-save-button').on('click', function (e) {
     const content = $('#content').val();
 
     AP.context.getToken(function (token) {
-        $.post(`/mm/api/v1/board?jwt=${token}`, {title, content})
-            .done(function (e) {
-                console.log(e);
+        $.ajax({
+            url: `/mm/api/v1/board?jwt=${token}`,
+            type: "POST",
+            contentType: "application/json",  // 요청 타입 지정 (JSON인 경우)
+            data: JSON.stringify({ title, content }),  // 데이터 변환 (JSON 필요 시)
+            success: function (response) {
+                console.log(response);
                 location.reload();
-            })
-            .fail(function (e) {
-                console.error(e);
-            })
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
     });
 
     /*AP.context.getToken(function (token) {
