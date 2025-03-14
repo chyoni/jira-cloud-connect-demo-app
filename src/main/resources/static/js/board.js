@@ -3,24 +3,21 @@ $('#article-save-button').on('click', function (e) {
     const title = $('#title').val();
     const content = $('#content').val();
 
-    AP.context.getContext(function (res) {
-        console.log(res);
-    })
-
-    /*AP.context.getToken(function (token) {
+    AP.context.getToken(function (token) {
         $.ajax({
             url: `/mm/api/v1/board?jwt=${token}`,
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ title, content }),
             success: function (response) {
-                window.location.href = ''
+                console.log(response);
+                // window.location.href = ''
             },
             error: function (error) {
                 console.error(error);
             }
         });
-    });*/
+    });
 
     /*AP.request({
         url: `/mm/api/v1/board`,

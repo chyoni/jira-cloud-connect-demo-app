@@ -2,6 +2,7 @@ package kr.osci.addons.app.domain.board.controller.api;
 
 import com.atlassian.connect.spring.AtlassianHostUser;
 import com.atlassian.connect.spring.IgnoreJwt;
+import kr.osci.addons.app.domain.board.controller.api.response.ApiResponse;
 import kr.osci.addons.app.domain.board.service.ArticleService;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
 import kr.osci.addons.app.domain.board.service.response.ArticleCreateResponse;
@@ -25,8 +26,8 @@ public class BoardApiController {
     private final ArticleService articleService;
 
     @PostMapping
-    public ResponseEntity<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
-                                                        @RequestBody ArticleCreateRequest request) {
+    public ResponseEntity<ApiResponse<ArticleCreateResponse>> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
+                                                                     @RequestBody ArticleCreateRequest request) {
         log.info("[create:30] ArticleCreateRequest title: {}, content: {}", request.title(), request.content());
 
         ArticleCreateResponse articleCreateResponse = articleService.create(
@@ -36,6 +37,10 @@ public class BoardApiController {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(articleCreateResponse);
+                .body(ApiResponse.ok(
+                                articleCreateResponse,
+                                hostUser.getHost().getBaseUrl()
+                        )
+                );
     }
 }
