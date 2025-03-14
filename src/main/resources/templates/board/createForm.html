@@ -8,7 +8,7 @@
         <h2 th:text="#{board.main.title}"></h2>
     </div>
 
-    <form th:object="${article}"
+    <!--<form th:object="${article}"
           method="post"
           class="aui" style="height: 100vh;">
         <div class="field-group">
@@ -24,6 +24,28 @@
         <div class="buttons-container">
             <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>
         </div>
+    </form>-->
+    <form class="aui" th:action="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/board-new'}">
+        <div class="field-group">
+            <label for="comment-email">Email
+                <span class="aui-icon icon-required">(required)</span></label>
+            <input class="text medium-field" type="text"
+                   id="comment-email" name="comment-email" placeholder="you@example.com">
+            <div class="description">Your
+                primary email address.</div>
+        </div>
+        <div class="field-group">
+            <label for="comment-input">Comment</label>
+            <textarea class="textarea" name="comment-input"
+                      id="comment-input" placeholder="Your comment here..."></textarea>
+        </div>
+        <div class="buttons-container">
+            <div class="buttons">
+                <input class="button submit" type="submit" value="Save" id="comment-save-button">
+                <a class="cancel" href="#">Cancel</a>
+            </div>
+        </div>
     </form>
+
 </body>
 </html>
