@@ -1,6 +1,8 @@
-console.log("resource downloaded")
 
 $('#article-save-button').on('click', function (e) {
     e.preventDefault();
-    console.log("hello!?")
+    const title = $('#title').val();
+    const content = $('#content').val();
+
+    console.log(title, content);
 })
