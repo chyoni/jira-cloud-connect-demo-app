@@ -23,14 +23,13 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     @Transactional
-    public ArticleCreateResponse create(ArticleCreateRequest request, AtlassianHostUser requestUser) {
+    public ArticleCreateResponse create(ArticleCreateRequest request, String writerId) {
+        log.info("[create:27] writerId = {}", writerId);
         Article newArticle = articleRepository.save(
                 Article.of(
                         request.title(),
                         request.content(),
-                        requestUser == null ?
-                                "LocalUser" :
-                                requestUser.getUserAccountId().orElseThrow()
+                        writerId
                 )
         );
 

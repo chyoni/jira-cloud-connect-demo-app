@@ -28,10 +28,10 @@ public class BoardApiController {
     @PostMapping
     public ResponseEntity<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                                                       @RequestBody ArticleCreateRequest request) {
-        if (hostUser.getUserAccountId().isEmpty()) {
-            throw new RuntimeException("User ID is empty");
-        }
-        ArticleCreateResponse articleCreateResponse = articleService.create(request, hostUser);
+        ArticleCreateResponse articleCreateResponse = articleService.create(
+                request,
+                hostUser.getUserAccountId().orElseThrow()
+        );
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
