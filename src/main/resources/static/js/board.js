@@ -3,6 +3,14 @@ $('#article-save-button').on('click', function (e) {
     const title = $('#title').val();
     const content = $('#content').val();
 
+    let jwt;
+    AP.context.getToken(function (token) {
+        jwt = token;
+    });
+
+    console.log(AP.content.getToken());
+    console.log(jwt);
+
     /*AP.context.getToken(function (token) {
         console.log(token);
     })
