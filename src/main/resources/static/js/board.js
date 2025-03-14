@@ -11,7 +11,6 @@ $('#article-save-button').on('click', function (e) {
             data: JSON.stringify({ title, content }),  // 데이터 변환 (JSON 필요 시)
             headers: {
                 "X-Atlassian-Token": `${token}`,  // Authorization 헤더 추가
-                "Custom-Header": "MyValue"  // 추가적인 헤더 넣기 가능
             },
             success: function (response) {
                 console.log(response);
