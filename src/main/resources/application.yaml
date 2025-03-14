@@ -14,7 +14,7 @@ logging:
 
 atlassian:
   connect:
-    uriEncoding: none
+    uriEncoding: default
 
 spring:
   config:
