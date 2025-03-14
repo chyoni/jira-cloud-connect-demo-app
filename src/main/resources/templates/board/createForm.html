@@ -25,7 +25,7 @@
             <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>
         </div>
     </form>-->
-    <form class="aui" th:action="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/board-new'}">
+    <form class="aui" method="post" th:action="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/board-new'}">
         <div class="field-group">
             <label for="comment-email">Email
                 <span class="aui-icon icon-required">(required)</span></label>
