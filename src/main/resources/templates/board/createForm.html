@@ -10,13 +10,19 @@
 
     <form class="aui ac-content">
         <div class="field-group">
-            <label for="title">Title<span class="aui-icon icon-required">(required)</span></label>
-            <input class="text long-field" type="text" id="title" name="title" placeholder="Title">
+            <label th:for="title">
+                <span th:text="#{board.title}"></span>
+                <span class="aui-icon icon-required">(required)</span>
+            </label>
+            <input class="text long-field" type="text" name="title" id="title" th:placeholder="#{board.title}">
             <div class="description">Your article title.</div>
         </div>
         <div class="field-group">
-            <label for="content">Content</label>
-            <textarea rows="10" class="textarea" name="content" id="content" placeholder="Your article content here..."></textarea>
+            <label th:for="content">
+                <span th:text="#{board.content}"></span>
+                <span class="aui-icon icon-required">(required)</span>
+            </label>
+            <textarea rows="10" class="textarea" name="content" id="content" th:placeholder="#{board.content}"></textarea>
         </div>
         <div class="buttons-container">
             <div class="buttons">
@@ -24,6 +30,5 @@
             </div>
         </div>
     </form>
-
 </body>
 </html>
