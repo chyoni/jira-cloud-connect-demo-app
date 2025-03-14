@@ -26,22 +26,13 @@ public class BoardApiController {
     private final ArticleService articleService;
 
     @PostMapping
-    public ResponseEntity<ApiResponse<ArticleCreateResponse>> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
+    public ApiResponse<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                                                                      @RequestBody ArticleCreateRequest request) {
-        log.info("[create:30] ArticleCreateRequest title: {}, content: {}", request.title(), request.content());
-
         ArticleCreateResponse articleCreateResponse = articleService.create(
                 request,
                 hostUser.getUserAccountId().orElseThrow()
         );
 
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(
-                        ApiResponse.ok(
-                                articleCreateResponse,
-                                hostUser.getHost().getBaseUrl()
-                        )
-                );
+        return ApiResponse.created(articleCreateResponse, hostUser.getHost().getBaseUrl());
     }
 }

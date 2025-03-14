@@ -24,6 +24,15 @@ public class ApiResponse <T> {
         return res;
     }
 
+    public static <T> ApiResponse<T> created(T data, String hostBaseUrl) {
+        ApiResponse<T> res = new ApiResponse<>();
+        res.data = data;
+        res.status = HttpStatus.CREATED;
+        res.errorMessage = null;
+        res.hostBaseUrl = hostBaseUrl;
+        return res;
+    }
+
     public static <T> ApiResponse<T> of(T data, HttpStatus status, String hostBaseUrl) {
         ApiResponse<T> res = new ApiResponse<>();
         res.data = data;
