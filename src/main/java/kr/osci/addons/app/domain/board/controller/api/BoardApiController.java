@@ -5,7 +5,6 @@ import com.atlassian.connect.spring.IgnoreJwt;
 import kr.osci.addons.app.domain.board.service.ArticleService;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
 import kr.osci.addons.app.domain.board.service.response.ArticleCreateResponse;
-import kr.osci.addons.app.domain.board.service.response.ArticleReadResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -27,7 +26,7 @@ public class BoardApiController {
 
     @PostMapping
     public ResponseEntity<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
-                                                      @RequestBody ArticleCreateRequest request) {
+                                                        @RequestBody ArticleCreateRequest request) {
         ArticleCreateResponse articleCreateResponse = articleService.create(
                 request,
                 hostUser.getUserAccountId().orElseThrow()

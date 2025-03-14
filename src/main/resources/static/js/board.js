@@ -7,7 +7,7 @@ $('#article-save-button').on('click', function (e) {
         $.ajax({
             url: `/mm/api/v1/board?jwt=${token}`,
             type: "POST",
-            contentType: "application/json",
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ title, content }),
             success: function (response) {
                 console.log(response);
