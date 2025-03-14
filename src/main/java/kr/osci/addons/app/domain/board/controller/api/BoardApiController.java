@@ -27,7 +27,7 @@ public class BoardApiController {
     @PostMapping
     public ResponseEntity<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                                                         @RequestBody ArticleCreateRequest request) {
-        log.info("[create:30] ArticleCreateRequest: {}", request);
+        log.info("[create:30] ArticleCreateRequest title: {}, content: {}", request.title(), request.content());
 
         ArticleCreateResponse articleCreateResponse = articleService.create(
                 request,
