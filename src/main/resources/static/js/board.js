@@ -10,16 +10,16 @@ $('#article-save-button').on('click', function (e) {
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ title, content }),
             success: function (response) {
-                console.log(response);
-                //window.top.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`
+                window.top.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`
             },
             error: function (error) {
                 console.error(error);
             }
         });
     });
+})
 
-    /*AP.request({
+/*AP.request({
         url: `/mm/api/v1/board`,
         type: 'POST',
         contentType: 'application/json',
@@ -31,4 +31,3 @@ $('#article-save-button').on('click', function (e) {
             console.log(xhr, statusText, errorThrown);
         },
     })*/
-})
