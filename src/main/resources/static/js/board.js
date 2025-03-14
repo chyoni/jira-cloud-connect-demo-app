@@ -11,7 +11,7 @@ $('#article-save-button').on('click', function (e) {
             data: JSON.stringify({ title, content }),
             success: function (response) {
                 console.log(response);
-                window.top.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`
+                //window.top.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`
             },
             error: function (error) {
                 console.error(error);
