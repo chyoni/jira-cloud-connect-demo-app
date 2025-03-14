@@ -1,4 +1,3 @@
-
 $('#article-save-button').on('click', function (e) {
     e.preventDefault();
     const title = $('#title').val();
@@ -12,7 +11,7 @@ $('#article-save-button').on('click', function (e) {
         console.log(response);
     })*/
 
-    AP.request({
+    /*AP.request({
         url: `/mm/api/v1/board`,
         type: 'POST',
         contentType: 'application/json',
@@ -23,5 +22,14 @@ $('#article-save-button').on('click', function (e) {
         error: function (xhr, statusText, errorThrown) {
             console.log(xhr, statusText, errorThrown);
         },
-    })
+    })*/
+
+    $.post(`/mm/api/v1/board`, {title, content})
+        .done(function (e) {
+            console.log(e);
+            location.reload();
+        })
+        .fail(function (e) {
+            console.error(e);
+        })
 })
