@@ -1,7 +1,6 @@
 package kr.osci.addons.app.domain.board.controller;
 
 import com.atlassian.connect.spring.AtlassianHostUser;
-import com.atlassian.connect.spring.IgnoreJwt;
 import kr.osci.addons.app.domain.board.service.ArticleService;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
 import kr.osci.addons.app.domain.board.service.response.ArticleReadPageResponse;
@@ -23,8 +22,13 @@ public class BoardController {
     private final ArticleService articleService;
 
     @GetMapping
-    public String boardMain(Model model,
-                            @RequestParam(value = "page", required = false, defaultValue = "1") Long page) {
+    public String boardMain(@AuthenticationPrincipal AtlassianHostUser hostUser,
+                            @RequestParam(value = "page", required = false, defaultValue = "1") Long page,
+                            Model model) {
+        log.debug("[boardMain:28] hostUser base url = {}", hostUser.getHost().getBaseUrl());
+        log.debug("[boardMain:28] hostUser client key = {}", hostUser.getHost().getClientKey());
+        log.debug("[boardMain:28] hostUser display url = {}", hostUser.getHost().getDisplayUrl());
+        log.debug("[boardMain:28] hostUser account id = {}", hostUser.getUserAccountId());
         ArticleReadPageResponse articles = articleService.readAll(page, 10L);
         model.addAttribute("articles", articles);
         return "board/main";
