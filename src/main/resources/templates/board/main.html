@@ -8,8 +8,7 @@
         <h2 th:text="#{board.main.title}"></h2>
     </div>
     <div style="width: 100%; display: flex; align-items: center; justify-content: flex-end">
-<!--        <a class="aui-button aui-button-primary" th:href="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/board-new'}" th:text="#{create.button}"></a>-->
-        <a class="aui-button aui-button-primary" th:href="@{/board/new}" th:text="#{create.button}"></a>
+        <a class="aui-button aui-button-primary" th:href="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/board-new'}" th:text="#{create.button}"></a>
     </div>
     <table id="board-table" class="aui aui-table-sortable">
         <thead>

@@ -8,22 +8,34 @@
         <h2 th:text="#{board.main.title}"></h2>
     </div>
 
-    <form th:object="${article}"
-          method="post"
-          class="aui" style="height: 100vh;">
-        <div class="field-group">
-            <label th:for="title" th:text="#{board.title}"></label>
-            <input class="text long-field" type="text" th:field="*{title}" th:placeholder="#{board.title}">
-            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error"></div>
-        </div>
-        <div class="field-group">
-            <label th:for="content" th:text="#{board.content}"></label>
-            <textarea rows="10" class="textarea long-field" type="number" th:field="*{content}" th:placeholder="#{board.content}"></textarea>
-            <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error"></div>
-        </div>
-        <div class="buttons-container">
-            <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>
-        </div>
-    </form>
+    <table id="board-table" class="aui aui-table-sortable">
+        <thead>
+        <tr>
+            <th th:text="#{board.title}"></th>
+            <th th:text="#{board.writer}"></th>
+            <th th:text="#{board.created}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+<!--    <form th:object="${article}"-->
+<!--          method="post"-->
+<!--          class="aui" style="height: 100vh;">-->
+<!--        <div class="field-group">-->
+<!--            <label th:for="title" th:text="#{board.title}"></label>-->
+<!--            <input class="text long-field" type="text" th:field="*{title}" th:placeholder="#{board.title}">-->
+<!--            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error"></div>-->
+<!--        </div>-->
+<!--        <div class="field-group">-->
+<!--            <label th:for="content" th:text="#{board.content}"></label>-->
+<!--            <textarea rows="10" class="textarea long-field" type="number" th:field="*{content}" th:placeholder="#{board.content}"></textarea>-->
+<!--            <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error"></div>-->
+<!--        </div>-->
+<!--        <div class="buttons-container">-->
+<!--            <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>-->
+<!--        </div>-->
+<!--    </form>-->
 </body>
 </html>
