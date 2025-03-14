@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="/base :: common_header(~{::title})">
+<head th:replace="~{base :: common_header(~{::title})}">
     <title th:text="#{board.main.title}"></title>
 </head>
 <body style="background-color: white;" class="ac-content">
