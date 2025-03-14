@@ -25,10 +25,11 @@ public class BoardController {
     public String boardMain(@AuthenticationPrincipal AtlassianHostUser hostUser,
                             @RequestParam(value = "page", required = false, defaultValue = "1") Long page,
                             Model model) {
-        log.debug("[boardMain:28] hostUser base url = {}", hostUser.getHost().getBaseUrl());
-        log.debug("[boardMain:28] hostUser client key = {}", hostUser.getHost().getClientKey());
-        log.debug("[boardMain:28] hostUser display url = {}", hostUser.getHost().getDisplayUrl());
-        log.debug("[boardMain:28] hostUser account id = {}", hostUser.getUserAccountId());
+        log.info("[boardMain:28] /board/main");
+        log.info("[boardMain:28] hostUser base url = {}", hostUser.getHost().getBaseUrl());
+        log.info("[boardMain:28] hostUser client key = {}", hostUser.getHost().getClientKey());
+        log.info("[boardMain:28] hostUser display url = {}", hostUser.getHost().getDisplayUrl());
+        log.info("[boardMain:28] hostUser account id = {}", hostUser.getUserAccountId());
         ArticleReadPageResponse articles = articleService.readAll(page, 10L);
         model.addAttribute("articles", articles);
         return "board/main";
