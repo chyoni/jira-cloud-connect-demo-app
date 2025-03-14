@@ -33,7 +33,6 @@ public class BoardController {
 
     @GetMapping("/new")
     public String create(@AuthenticationPrincipal AtlassianHostUser hostUser, Model model) {
-        log.info("[create:36] auth : {}", hostUser.getHost().getAuthentication().name());
         model.addAttribute("article", ArticleCreateRequest.empty());
         model.addAttribute("hostUser", hostUser);
         return "board/createForm";

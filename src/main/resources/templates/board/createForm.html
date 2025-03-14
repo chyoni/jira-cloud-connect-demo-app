@@ -8,41 +8,19 @@
         <h2 th:text="#{board.main.title}"></h2>
     </div>
 
-    <!--<form th:object="${article}"
-          method="post"
-          class="aui" style="height: 100vh;">
-        <div class="field-group">
-            <label th:for="title" th:text="#{board.title}"></label>
-            <input class="text long-field" type="text" th:field="*{title}" th:placeholder="#{board.title}">
-            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error"></div>
-        </div>
-        <div class="field-group">
-            <label th:for="content" th:text="#{board.content}"></label>
-            <textarea rows="10" class="textarea long-field" type="number" th:field="*{content}" th:placeholder="#{board.content}"></textarea>
-            <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="error"></div>
-        </div>
-        <div class="buttons-container">
-            <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>
-        </div>
-    </form>-->
     <form class="aui">
         <div class="field-group">
-            <label for="comment-email">Email
-                <span class="aui-icon icon-required">(required)</span></label>
-            <input class="text medium-field" type="text"
-                   id="comment-email" name="comment-email" placeholder="you@example.com">
-            <div class="description">Your
-                primary email address.</div>
+            <label for="title" th:text="#{board.title}"></label>
+            <input class="text long-field" type="text" id="title" name="title" th:placeholder="#{board.title}">
+            <div class="description">Your article title.</div>
         </div>
         <div class="field-group">
-            <label for="comment-input">Comment</label>
-            <textarea class="textarea" name="comment-input"
-                      id="comment-input" placeholder="Your comment here..."></textarea>
+            <label for="content" th:text="#{board.content}"></label>
+            <textarea class="textarea" name="content" id="content" th:placeholder="#{board.content}"></textarea>
         </div>
         <div class="buttons-container">
             <div class="buttons">
-                <input class="button submit" type="submit" value="Save" id="comment-save-button">
-                <a class="cancel" href="#">Cancel</a>
+                <input class="button submit" type="submit" value="Save" id="article-save-button">
             </div>
         </div>
     </form>
