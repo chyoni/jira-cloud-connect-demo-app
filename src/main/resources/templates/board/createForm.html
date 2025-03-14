@@ -10,13 +10,13 @@
 
     <form class="aui">
         <div class="field-group">
-            <label for="title" th:text="#{board.title}"></label>
-            <input class="text long-field" type="text" id="title" name="title" th:placeholder="#{board.title}">
+            <label for="title">Title<span class="aui-icon icon-required">(required)</span></label>
+            <input class="text long-field" type="text" id="title" name="title" placeholder="Title">
             <div class="description">Your article title.</div>
         </div>
         <div class="field-group">
-            <label for="content" th:text="#{board.content}"></label>
-            <textarea class="textarea" name="content" id="content" th:placeholder="#{board.content}"></textarea>
+            <label for="content">Content</label>
+            <textarea rows="10" class="textarea" name="content" id="content" placeholder="Your article content here..."></textarea>
         </div>
         <div class="buttons-container">
             <div class="buttons">
