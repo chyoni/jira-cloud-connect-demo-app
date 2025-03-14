@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@IgnoreJwt
+//@IgnoreJwt
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/board")
