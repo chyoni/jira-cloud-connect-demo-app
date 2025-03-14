@@ -5,7 +5,7 @@ $('#article-save-button').on('click', function (e) {
 
     AP.context.getToken(function (token) {
         $.ajax({
-            url: `/mm/api/v1/board`,
+            url: `/mm/api/v1/board?jwt=${token}`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({ title, content }),
