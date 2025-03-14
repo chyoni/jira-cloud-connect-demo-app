@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-//@IgnoreJwt
+@IgnoreJwt
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/board")
@@ -24,7 +24,8 @@ public class BoardApiController {
     @PostMapping
     public String create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                          @RequestBody ArticleCreateRequest request) {
-        log.info("[create:25] hostUser: {}", hostUser.getUserAccountId().orElseThrow());
+        String accountId = hostUser.getUserAccountId().orElseThrow();
+        log.info("[create:25] hostUser: {}", accountId);
         log.info("[create:25] request: {}", request);
         return "OK";
     }
