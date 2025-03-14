@@ -37,7 +37,8 @@ public class BoardApiController {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(ApiResponse.ok(
+                .body(
+                        ApiResponse.ok(
                                 articleCreateResponse,
                                 hostUser.getHost().getBaseUrl()
                         )

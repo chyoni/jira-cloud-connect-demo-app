@@ -10,8 +10,7 @@ $('#article-save-button').on('click', function (e) {
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({ title, content }),
             success: function (response) {
-                console.log(response);
-                // window.location.href = ''
+                window.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`
             },
             error: function (error) {
                 console.error(error);
