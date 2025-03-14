@@ -1,5 +1,6 @@
+console.log("resource downloaded")
 
-$('#article-save-button').on('submit', function (e) {
+$('#article-save-button').on('click', function (e) {
     e.preventDefault();
     console.log("hello!?")
 })
