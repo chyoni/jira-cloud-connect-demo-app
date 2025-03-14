@@ -25,19 +25,15 @@
             <button type="submit" class="aui-button aui-button-primary" th:text="#{create.button}"></button>
         </div>
     </form>-->
-    <form class="aui" method="post" th:action="@{/board/new}">
+    <form class="aui" method="post" th:object="${article}">
         <div class="field-group">
-            <label for="comment-email">Email
-                <span class="aui-icon icon-required">(required)</span></label>
-            <input class="text medium-field" type="text"
-                   id="comment-email" name="comment-email" placeholder="you@example.com">
-            <div class="description">Your
-                primary email address.</div>
+            <label th:for="title" th:text="#{board.title}"><span class="aui-icon icon-required">(required)</span></label>
+            <input class="text long-field" type="text" th:field="*{title}" id="title" name="title" th:placeholder="#{board.title}">
+            <div class="description">Your primary email address.</div>
         </div>
         <div class="field-group">
-            <label for="comment-input">Comment</label>
-            <textarea class="textarea" name="comment-input"
-                      id="comment-input" placeholder="Your comment here..."></textarea>
+            <label th:for="content" th:text="#{board.content}"></label>
+            <textarea class="textarea" th:field="*{content}" name="content" id="content" th:placeholder="#{board.content}"></textarea>
         </div>
         <div class="buttons-container">
             <div class="buttons">

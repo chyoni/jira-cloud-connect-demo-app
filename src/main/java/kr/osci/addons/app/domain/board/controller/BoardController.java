@@ -42,6 +42,8 @@ public class BoardController {
     public String create(@AuthenticationPrincipal AtlassianHostUser authenticatedUser,
                          @Validated @ModelAttribute("article") ArticleCreateRequest article,
                          BindingResult bindingResult) {
+        log.info("[create:45] create: {}", article);
+
         if (bindingResult.hasErrors()) {
             log.debug("[create:45] binding errors : {}", bindingResult);
             return "board/createForm";
