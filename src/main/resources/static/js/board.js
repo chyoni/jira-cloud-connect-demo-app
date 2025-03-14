@@ -9,6 +9,10 @@ $('#article-save-button').on('click', function (e) {
             type: "POST",
             contentType: "application/json",  // 요청 타입 지정 (JSON인 경우)
             data: JSON.stringify({ title, content }),  // 데이터 변환 (JSON 필요 시)
+            headers: {
+                "Authorization": `Bearer ${token}`,  // Authorization 헤더 추가
+                "Custom-Header": "MyValue"  // 추가적인 헤더 넣기 가능
+            },
             success: function (response) {
                 console.log(response);
                 location.reload();

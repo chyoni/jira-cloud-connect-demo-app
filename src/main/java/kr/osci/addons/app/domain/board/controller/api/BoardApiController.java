@@ -24,7 +24,7 @@ public class BoardApiController {
     @PostMapping
     public String create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                          @RequestBody ArticleCreateRequest request) {
-        log.info("[create:25] hostUser: {}", hostUser.getUserAccountId());
+        log.info("[create:25] hostUser: {}", hostUser.getUserAccountId().orElseThrow());
         log.info("[create:25] request: {}", request);
         return "OK";
     }
