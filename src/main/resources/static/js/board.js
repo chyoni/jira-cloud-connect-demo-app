@@ -3,12 +3,16 @@ $('#article-save-button').on('click', function (e) {
     const title = $('#title').val();
     const content = $('#content').val();
 
-    let jwt;
     AP.context.getToken(function (token) {
-        jwt = token;
+        $.post(`/mm/api/v1/board?jwt=${token}`, {title, content})
+            .done(function (e) {
+                console.log(e);
+                location.reload();
+            })
+            .fail(function (e) {
+                console.error(e);
+            })
     });
-
-    console.log(jwt);
 
     /*AP.context.getToken(function (token) {
         console.log(token);
@@ -30,13 +34,4 @@ $('#article-save-button').on('click', function (e) {
             console.log(xhr, statusText, errorThrown);
         },
     })*/
-
-    $.post(`/mm/api/v1/board?jwt=${jwt}`, {title, content})
-        .done(function (e) {
-            console.log(e);
-            location.reload();
-        })
-        .fail(function (e) {
-            console.error(e);
-        })
 })
