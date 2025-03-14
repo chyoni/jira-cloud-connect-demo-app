@@ -1,4 +1,4 @@
-package kr.osci.addons.app.domain.board.controller;
+package kr.osci.addons.app.domain.board.controller.view;
 
 import com.atlassian.connect.spring.AtlassianHostUser;
 import kr.osci.addons.app.domain.board.service.ArticleService;
@@ -33,6 +33,7 @@ public class BoardController {
 
     @GetMapping("/new")
     public String create(@AuthenticationPrincipal AtlassianHostUser hostUser, Model model) {
+        log.info("[create:36] auth : {}", hostUser.getHost().getAuthentication().name());
         model.addAttribute("article", ArticleCreateRequest.empty());
         model.addAttribute("hostUser", hostUser);
         return "board/createForm";
