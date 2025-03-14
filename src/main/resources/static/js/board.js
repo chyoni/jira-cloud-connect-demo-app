@@ -4,14 +4,19 @@ $('#article-save-button').on('click', function (e) {
     const content = $('#content').val();
 
     AP.context.getToken(function (token) {
-        $.post(`/mm/api/v1/board?jwt=${token}`, {title, content})
-            .done(function (e) {
-                console.log(e);
-                location.reload();
-            })
-            .fail(function (e) {
-                console.error(e);
-            })
+        $.ajax({
+            url: `/mm/api/v1/board`,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ title, content }),
+            headers: {"Authorization": `JWT ${token}`},
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
     });
 
     /*AP.context.getToken(function (token) {
