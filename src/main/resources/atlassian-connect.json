@@ -19,14 +19,18 @@
         "name": {
           "value": "Board"
         }
-      },
+      }
+    ],
+    "dialogs": [
       {
-        "key": "board-new",
-        "location": "none",
         "url": "/board/new",
-        "name": {
-          "value": "Create New Article"
-        }
+        "options": {
+          "size": "fullscreen",
+          "header": {
+            "value": "Example"
+          }
+        },
+        "key": "dialog"
       }
     ]
   }

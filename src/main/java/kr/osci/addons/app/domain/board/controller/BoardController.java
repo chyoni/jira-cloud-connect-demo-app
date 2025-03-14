@@ -32,7 +32,7 @@ public class BoardController {
     }
 
     @GetMapping("/new")
-    public String create(Model model) {
+    public String create(@AuthenticationPrincipal AtlassianHostUser hostUser, Model model) {
         model.addAttribute("article", ArticleCreateRequest.empty());
         return "board/createForm";
     }
