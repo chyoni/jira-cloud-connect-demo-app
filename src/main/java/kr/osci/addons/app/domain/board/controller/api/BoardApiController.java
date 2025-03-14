@@ -4,8 +4,12 @@ import com.atlassian.connect.spring.AtlassianHostUser;
 import com.atlassian.connect.spring.IgnoreJwt;
 import kr.osci.addons.app.domain.board.service.ArticleService;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
+import kr.osci.addons.app.domain.board.service.response.ArticleCreateResponse;
+import kr.osci.addons.app.domain.board.service.response.ArticleReadResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +26,15 @@ public class BoardApiController {
     private final ArticleService articleService;
 
     @PostMapping
-    public String create(@AuthenticationPrincipal AtlassianHostUser hostUser,
-                         @RequestBody ArticleCreateRequest request) {
-        String accountId = hostUser.getUserAccountId().orElseThrow();
-        log.info("[create:25] hostUser: {}", accountId);
-        log.info("[create:25] request: {}", request);
-        return "OK";
+    public ResponseEntity<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
+                                                      @RequestBody ArticleCreateRequest request) {
+        if (hostUser.getUserAccountId().isEmpty()) {
+            throw new RuntimeException("User ID is empty");
+        }
+        ArticleCreateResponse articleCreateResponse = articleService.create(request, hostUser);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(articleCreateResponse);
     }
 }
