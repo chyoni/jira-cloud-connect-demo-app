@@ -21,16 +21,19 @@ public class Article {
     private String title;
     private String content;
     private String writerId;
+    private String writerDisplayName;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
     public static Article of(String title,
                              String content,
-                             String writerId) {
+                             String writerId,
+                             String writerDisplayName) {
         Article article = new Article();
         article.title = title;
         article.content = content;
         article.writerId = writerId;
+        article.writerDisplayName = writerDisplayName;
         article.createdAt = LocalDateTime.now();
         article.modifiedAt = LocalDateTime.now();
         return article;

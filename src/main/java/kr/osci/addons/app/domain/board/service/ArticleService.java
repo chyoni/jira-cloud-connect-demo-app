@@ -1,8 +1,6 @@
 package kr.osci.addons.app.domain.board.service;
 
-import com.atlassian.connect.spring.AtlassianHost;
 import com.atlassian.connect.spring.AtlassianHostRestClients;
-import com.atlassian.connect.spring.AtlassianHostUser;
 import kr.osci.addons.app.domain.board.entity.Article;
 import kr.osci.addons.app.domain.board.repository.ArticleRepository;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
@@ -12,7 +10,6 @@ import kr.osci.addons.app.domain.board.service.response.ArticleReadResponse;
 import kr.osci.addons.app.domain.board.utils.PageLimitCalculator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +37,8 @@ public class ArticleService {
                 Article.of(
                         request.title(),
                         request.content(),
-                        writerId
+                        writerId,
+                        ""
                 )
         );
 
