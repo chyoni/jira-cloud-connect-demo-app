@@ -1,11 +1,9 @@
 server:
   port: 9090
-  servlet:
-    context-path: /mm
 
 addon:
   key: demo-app
-  base-url: https://pms.tbell.kro.kr/mm
+  base-url: https://acdemo.cwchoiit.link
 
 logging:
   level:
