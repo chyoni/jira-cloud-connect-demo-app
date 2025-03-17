@@ -26,10 +26,7 @@ public class BoardApiController {
     @PostMapping
     public ApiResponse<ArticleCreateResponse> create(@AuthenticationPrincipal AtlassianHostUser hostUser,
                                                      @RequestBody ArticleCreateRequest request) {
-        ArticleCreateResponse articleCreateResponse = articleService.create(
-                request,
-                hostUser.getUserAccountId().orElseThrow()
-        );
+        ArticleCreateResponse articleCreateResponse = articleService.create(request, hostUser);
 
         return ApiResponse.created(articleCreateResponse, hostUser.getHost().getBaseUrl());
     }

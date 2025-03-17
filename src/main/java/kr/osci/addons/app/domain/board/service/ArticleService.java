@@ -1,6 +1,8 @@
 package kr.osci.addons.app.domain.board.service;
 
+import com.atlassian.connect.spring.AtlassianHost;
 import com.atlassian.connect.spring.AtlassianHostRestClients;
+import com.atlassian.connect.spring.AtlassianHostUser;
 import kr.osci.addons.app.domain.board.entity.Article;
 import kr.osci.addons.app.domain.board.repository.ArticleRepository;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
@@ -25,10 +27,13 @@ public class ArticleService {
     private final AtlassianHostRestClients atlassianHostRestClients;
 
     @Transactional
-    public ArticleCreateResponse create(ArticleCreateRequest request, String writerId) {
+    public ArticleCreateResponse create(ArticleCreateRequest request, AtlassianHostUser hostUser) {
+        String writerId = hostUser.getUserAccountId().orElseThrow();
         log.info("[create:27] writerId = {}", writerId);
+        log.info("[create:33] host base url: {}", hostUser.getHost().getBaseUrl());
+
         ResponseEntity<String> response = atlassianHostRestClients.authenticatedAsAddon()
-                .getForEntity("https://cwchoiit.atlassian.net/rest/api/3/user/{writerId}", String.class, writerId);
+                .getForEntity("https://cwchoiit.atlassian.net/rest/api/3/user?accountId={writerId}", String.class, writerId);
 
         log.info("[create:36] response status = {}", response.getStatusCode());
         log.info("[create:37] response body = {}", response.getBody());
