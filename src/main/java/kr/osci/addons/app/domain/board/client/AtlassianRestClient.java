@@ -24,8 +24,6 @@ public class AtlassianRestClient {
                 .authenticatedAsAddon()
                 .getForEntity(url, JiraUserResponse.class);
 
-        // TODO: 예외처리
-
         return response.getBody();
     }
 }

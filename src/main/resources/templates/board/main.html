@@ -24,7 +24,7 @@
         <tbody>
             <tr th:each="article : ${articles.getArticles()}">
                 <td th:text="${article.getTitle()}"></td>
-                <td th:text="${article.getWriterId()}"></td>
+                <td th:text="${article.getWriterDisplayName()}"></td>
                 <td th:text="${article.getCreatedAt()}"></td>
             </tr>
         </tbody>

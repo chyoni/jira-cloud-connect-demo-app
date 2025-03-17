@@ -16,6 +16,7 @@ public class ArticleReadResponse {
     private String title;
     private String content;
     private String writerId;
+    private String writerDisplayName;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
@@ -25,6 +26,7 @@ public class ArticleReadResponse {
         response.title = article.getTitle();
         response.content = article.getContent();
         response.writerId = article.getWriterId();
+        response.writerDisplayName = article.getWriterDisplayName();
         response.createdAt = article.getCreatedAt();
         response.modifiedAt = article.getModifiedAt();
         return response;
