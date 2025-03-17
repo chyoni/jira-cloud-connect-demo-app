@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,5 +37,11 @@ public class BoardController {
         model.addAttribute("article", ArticleCreateRequest.empty());
         model.addAttribute("hostUser", hostUser);
         return "board/createForm";
+    }
+
+    @GetMapping("/article/{articleId}")
+    public String readArticle(@PathVariable("articleId") Long articleId, Model model) {
+        model.addAttribute("article", articleService.read(articleId));
+        return "board/readArticle";
     }
 }

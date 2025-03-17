@@ -1,4 +1,4 @@
-package kr.osci.addons.app.domain.board.service.response;
+package kr.osci.addons.app.domain.board.client.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;

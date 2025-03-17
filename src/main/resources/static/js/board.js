@@ -8,6 +8,9 @@ $('#article-save-button').on('click', function (e) {
             url: `/api/v1/board?jwt=${token}`,
             type: "POST",
             contentType: "application/json; charset=utf-8",
+            headers: {
+                "Authorization": `JWT ${token}`
+            },
             data: JSON.stringify({ title, content }),
             success: function (response) {
                 window.top.location.href = `${response.hostBaseUrl}/plugins/servlet/ac/demo-app/board`

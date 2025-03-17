@@ -23,7 +23,11 @@
         </thead>
         <tbody>
             <tr th:each="article : ${articles.getArticles()}">
-                <td th:text="${article.getTitle()}"></td>
+                <td>
+                    <a th:text="${article.getTitle()}"
+                       th:target="_top"
+                       th:href="@{${hostUser.getHost().getBaseUrl()} + '/plugins/servlet/ac/demo-app/article/' + ${article.getArticleId()}}"></a>
+                </td>
                 <td th:text="${article.getWriterDisplayName()}"></td>
                 <td th:text="${article.getCreatedAt()}"></td>
             </tr>

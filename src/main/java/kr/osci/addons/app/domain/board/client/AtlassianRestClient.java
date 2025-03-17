@@ -2,7 +2,7 @@ package kr.osci.addons.app.domain.board.client;
 
 import com.atlassian.connect.spring.AtlassianHostRestClients;
 import com.atlassian.connect.spring.AtlassianHostUser;
-import kr.osci.addons.app.domain.board.service.response.JiraUserResponse;
+import kr.osci.addons.app.domain.board.client.response.JiraUserResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

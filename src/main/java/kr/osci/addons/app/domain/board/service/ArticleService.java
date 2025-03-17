@@ -8,7 +8,7 @@ import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
 import kr.osci.addons.app.domain.board.service.response.ArticleCreateResponse;
 import kr.osci.addons.app.domain.board.service.response.ArticleReadPageResponse;
 import kr.osci.addons.app.domain.board.service.response.ArticleReadResponse;
-import kr.osci.addons.app.domain.board.service.response.JiraUserResponse;
+import kr.osci.addons.app.domain.board.client.response.JiraUserResponse;
 import kr.osci.addons.app.domain.board.utils.PageLimitCalculator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
