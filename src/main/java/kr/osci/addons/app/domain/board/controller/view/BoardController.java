@@ -39,8 +39,9 @@ public class BoardController {
         return "board/createForm";
     }
 
-    @GetMapping("/article/{articleId}")
-    public String readArticle(@PathVariable("articleId") Long articleId, Model model) {
+    @GetMapping("/article")
+    public String readArticle(@RequestParam("articleId") Long articleId, Model model) {
+        log.info("[readArticle:44] articleId={}", articleId);
         model.addAttribute("article", articleService.read(articleId));
         return "board/readArticle";
     }

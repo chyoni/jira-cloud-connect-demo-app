@@ -33,7 +33,7 @@
         "key": "board-new"
       },
       {
-        "url": "/board/article/{articleId}",
+        "url": "/board/article",
         "options": {
           "size": "fullscreen",
           "header": {
