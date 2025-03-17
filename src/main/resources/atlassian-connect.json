@@ -40,7 +40,7 @@
             "value": "Article Detail"
           }
         },
-        "key": "article/{articleId}"
+        "key": "article"
       }
     ]
   }
