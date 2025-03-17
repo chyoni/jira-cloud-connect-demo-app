@@ -40,6 +40,6 @@ spring:
     open-in-view: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/board
+    url: jdbc:mysql://cwchoiitlink-rds.cx8w66ckec88.ap-northeast-2.rds.amazonaws.com:3306/board?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: 'root'
-    password: 'root'
+    password: 'vvEAMO0MYQLUWY2EpYCj'
