@@ -17,9 +17,12 @@ public class AtlassianRestClient {
     public JiraUserResponse getJiraUser(AtlassianHostUser hostUser, String accountId) {
         String baseUrl = hostUser.getHost().getBaseUrl();
 
+        String url = String.format("%s/rest/api/3/user?accountId=%s", baseUrl, accountId);
+        log.info("[getJiraUser:21] Request URL: {}", url);
+
         ResponseEntity<JiraUserResponse> response = atlassianHostRestClients
                 .authenticatedAsAddon()
-                .getForEntity("{baseURL}/rest/api/3/user?accountId={writerId}", JiraUserResponse.class, baseUrl, accountId);
+                .getForEntity(url, JiraUserResponse.class);
 
         // TODO: 예외처리
 
