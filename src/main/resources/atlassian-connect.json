@@ -31,16 +31,6 @@
           }
         },
         "key": "board-new"
-      },
-      {
-        "url": "/board/article",
-        "options": {
-          "size": "fullscreen",
-          "header": {
-            "value": "Article Detail"
-          }
-        },
-        "key": "article"
       }
     ]
   }

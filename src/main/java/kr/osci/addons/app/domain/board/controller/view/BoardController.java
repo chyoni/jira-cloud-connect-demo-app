@@ -32,17 +32,17 @@ public class BoardController {
         return "board/main";
     }
 
+    @GetMapping("/{articleId}")
+    public String readArticle(@PathVariable("articleId") Long articleId, Model model) {
+        log.info("[readArticle:44] articleId={}", articleId);
+        model.addAttribute("article", articleService.read(articleId));
+        return "board/readArticle";
+    }
+
     @GetMapping("/new")
     public String create(@AuthenticationPrincipal AtlassianHostUser hostUser, Model model) {
         model.addAttribute("article", ArticleCreateRequest.empty());
         model.addAttribute("hostUser", hostUser);
         return "board/createForm";
-    }
-
-    @GetMapping("/article")
-    public String readArticle(@RequestParam("articleId") Long articleId, Model model) {
-        log.info("[readArticle:44] articleId={}", articleId);
-        model.addAttribute("article", articleService.read(articleId));
-        return "board/readArticle";
     }
 }
