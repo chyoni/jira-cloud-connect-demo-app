@@ -1,6 +1,7 @@
 package kr.osci.addons.app.domain.board.controller.view;
 
 import com.atlassian.connect.spring.AtlassianHostUser;
+import com.atlassian.connect.spring.IgnoreJwt;
 import kr.osci.addons.app.domain.board.service.ArticleService;
 import kr.osci.addons.app.domain.board.service.request.ArticleCreateRequest;
 import kr.osci.addons.app.domain.board.service.response.ArticleReadPageResponse;
@@ -32,6 +33,7 @@ public class BoardController {
         return "board/main";
     }
 
+    @IgnoreJwt
     @GetMapping("/article/{articleId}")
     public String readArticle(@PathVariable("articleId") Long articleId, Model model) {
         log.info("[readArticle:44] articleId={}", articleId);
