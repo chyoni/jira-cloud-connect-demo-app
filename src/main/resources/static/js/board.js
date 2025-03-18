@@ -9,7 +9,7 @@ $('#article-save-button').on('click', function (e) {
             type: "POST",
             contentType: "application/json; charset=utf-8",
             headers: {
-                Authorization: ` JWT ${token}`
+                Authorization: `JWT ${token}`
             },
             data: JSON.stringify({ title, content }),
             success: function (response) {
