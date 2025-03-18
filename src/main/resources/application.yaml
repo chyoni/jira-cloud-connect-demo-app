@@ -25,7 +25,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://cwchoiitlink-rds.cx8w66ckec88.ap-northeast-2.rds.amazonaws.com:3306/board?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
-    username: 'root'
+    username: 'admin'
     password: '7LSGTSq4lSquIXC0cnvz'
 
 server:
