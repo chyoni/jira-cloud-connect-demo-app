@@ -33,7 +33,7 @@ public class BoardController {
     }
 
     @GetMapping("/article")
-    public String readArticle(@RequestParam("articleId") Long articleId, Model model) {
+    public String readArticle(Model model, @RequestParam("articleId") Long articleId) {
         log.info("[readArticle:44] articleId={}", articleId);
         model.addAttribute("article", articleService.read(articleId));
         return "board/readArticle";
